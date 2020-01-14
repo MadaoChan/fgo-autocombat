@@ -1,0 +1,193 @@
+# FGO国服2020圣诞无限池Monkey脚本
+# 屏幕分辨率：1280*720
+# 阵容：
+#	1号位 CBA   
+#	2号位 女武神（带50NP初始礼装）   
+#	3号位 CBA   
+#	4号位 孔明
+# 衣服：换人服
+
+count = 1
+speed = 1.0
+start data >>
+
+# ——————————第1面——————————
+# 1号位CBA 	技能1给女武神
+DispatchPointer(0, 150, 0, 76, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 76, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 20, 1, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(3500)
+
+# 女武神 	技能1 	技能3
+DispatchPointer(0, 150, 0, 386, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 386, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(3500)
+DispatchPointer(0, 150, 0, 575, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 575, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(3500)
+
+# 3号位CBA 	技能1给女武神		技能3给女武神
+DispatchPointer(0, 150, 0, 705, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 705, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 20, 1, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(3500)
+
+DispatchPointer(0, 150, 0, 900, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 900, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 20, 1, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(3500)
+
+# 点攻击
+DispatchPointer(0, 150, 0, 1140, 610, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 1140, 610, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(1500)
+
+# 选卡：宝具 攻击卡1 攻击卡3
+DispatchPointer(0, 150, 0, 650, 210, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 650, 210, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 125, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 125, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 900, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 900, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+
+# 等待直到第2面
+UserWait(30000)
+
+# ——————————第2面——————————
+# 3号位CBA 	技能2
+DispatchPointer(0, 150, 0, 800, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 800, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(3500)
+
+# 点礼装技能
+DispatchPointer(0, 150, 0, 1190, 320, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 1190, 320, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+
+# 点换人
+DispatchPointer(0, 150, 0, 1090, 320, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 1090, 320, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(1000)
+
+# 点3号位CBA和4号位孔明，点确定
+DispatchPointer(0, 150, 0, 540, 350, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 540, 350, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(300)
+DispatchPointer(0, 150, 0, 750, 350, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 750, 350, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(300)
+DispatchPointer(0, 150, 0, 640, 625, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 640, 625, 50, 0, 0, 0, 0, 0, 0, 0)
+
+# 等待换人完成
+UserWait(8000)
+
+# 3号位孔明 	技能1给女武神		技能2	技能3
+DispatchPointer(0, 150, 0, 705, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 705, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 20, 1, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(4000)
+
+DispatchPointer(0, 150, 0, 800, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 800, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(4000)
+
+DispatchPointer(0, 150, 0, 900, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 900, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(4000)
+
+# 点攻击
+DispatchPointer(0, 150, 0, 1140, 610, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 1140, 610, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(1500)
+
+# 选卡：宝具 攻击卡1 攻击卡3
+DispatchPointer(0, 150, 0, 650, 210, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 650, 210, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 125, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 125, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 900, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 900, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+
+# 等待直到第3面
+UserWait(38000)
+
+# ——————————第3面——————————
+# 1号位CBA	技能2 	技能3给女武神
+DispatchPointer(0, 150, 0, 160, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 160, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(3500)
+
+DispatchPointer(0, 150, 0, 260, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 260, 580, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 20, 1, 645, 420, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(3500)
+
+# 点礼装技能
+DispatchPointer(0, 150, 0, 1190, 320, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 1190, 320, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+
+# 点加攻击
+DispatchPointer(0, 150, 0, 900, 315, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 900, 315, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(2800)
+
+# 点攻击
+DispatchPointer(0, 150, 0, 1140, 610, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 1140, 610, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(1500)
+
+# 选卡：宝具 攻击卡1 攻击卡3
+DispatchPointer(0, 150, 0, 650, 210, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 650, 210, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 125, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 125, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+DispatchPointer(0, 150, 0, 900, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 900, 500, 50, 0, 0, 0, 0, 0, 0, 0)
+
+# 等待第3面结束到结算画面
+UserWait(28000)
+
+# ——————————结算画面——————————
+# 点屏幕，下一步
+DispatchPointer(0, 150, 0, 20, 30, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 20, 30, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(200)
+
+DispatchPointer(0, 150, 0, 20, 30, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 20, 30, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+
+# 点屏幕，点下一步
+DispatchPointer(0, 150, 0, 20, 30, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 20, 30, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(200)
+
+DispatchPointer(0, 150, 0, 20, 30, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 20, 30, 50, 0, 0, 0, 0, 0, 0, 0)
+UserWait(500)
+
+# 结束
+DispatchPointer(0, 150, 0, 1100, 680, 50, 0, 0, 0, 0, 0, 0, 0)
+DispatchPointer(0, 30, 1, 1100, 680, 50, 0, 0, 0, 0, 0, 0, 0)
+
+# 完成
+
+
