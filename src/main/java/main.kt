@@ -9,8 +9,8 @@ fun main(args: Array<String>) {
 
 class Main {
     init {
-        val fileName = "fgo2.mks"
-        val destPath = "/storage/emulated/0/fgo2.mks"
+        val fileName = "christmas2020pool.mks"
+        val destPath = "/storage/emulated/0/$fileName"
         val battle: Battle = Christmas2020()
         val result = battle.buildScript()
         println(result)
