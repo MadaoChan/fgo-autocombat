@@ -5,6 +5,11 @@ import java.lang.Exception
 
 class Deploy {
 
+    fun adbConnect(address: String) {
+        val adbConnect = "adb connect $address"
+        runCmd(adbConnect)
+    }
+
     fun deploy(srcPath: String, destPath: String, count: Int=1) {
         val file = File(srcPath)
         if (!file.exists()) {

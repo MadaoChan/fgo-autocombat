@@ -79,5 +79,12 @@ class Global {
         const val BATTLE_FINISH_Y_BASE = 0.944
         const val BATTLE_FINISH_X_BIAS = 0.03
         const val BATTLE_FINISH_Y_BIAS = 0.03
+
+        // 敌人位置
+        const val ENEMY_X_BASE = 0.03
+        const val ENEMY_Y_BASE = 0.06
+        const val ENEMY_X_DELTA = 0.19
+        const val ENEMY_X_BIAS = 0.02
+        const val ENEMY_Y_BIAS = 0.02
     }
 }

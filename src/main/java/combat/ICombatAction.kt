@@ -1,6 +1,14 @@
 package combat
 
 interface ICombatAction {
+
+    /**
+     * 选择敌人
+     * @param enemy 敌人编号（1/2/3)
+     * @return MonkeyScript语句
+     */
+    fun selectEnemy(enemy: Int): String
+
     /**
      * 从者技能（无指向）
      * @param skill 技能编号 (1/2/3)

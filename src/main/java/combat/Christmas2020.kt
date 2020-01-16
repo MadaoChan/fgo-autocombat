@@ -6,8 +6,8 @@ import java.util.*
 class Christmas2020: Battle() {
 
     companion object {
-        private const val SKILL_WAIT = 3500L
-        private const val KONGMING_WAIT = 4000L
+        private const val SKILL_WAIT = 2500L
+        private const val TURN_WAIT = 32000L
     }
 
     init {
@@ -44,7 +44,7 @@ class Christmas2020: Battle() {
         stringBuilder.append(action.attack(4))
         stringBuilder.append(action.attack(3))
         // 等待到第2面
-        stringBuilder.append(action.userWait(30000))
+        stringBuilder.append(action.userWait(TURN_WAIT))
 
         // ——————————第2面——————————
         // 3号位CBA 	技能2
@@ -53,9 +53,9 @@ class Christmas2020: Battle() {
         stringBuilder.append(action.openMasterSkill())
         stringBuilder.append(action.changeServant(3, 4))
         // 3号位孔明 	技能1给女武神	使用技能2	技能3
-        stringBuilder.append(action.servantSkill(1, 3, 2, true, KONGMING_WAIT))
-        stringBuilder.append(action.servantSkill(2, 3, KONGMING_WAIT))
-        stringBuilder.append(action.servantSkill(3, 3, KONGMING_WAIT))
+        stringBuilder.append(action.servantSkill(1, 3, 2, true, SKILL_WAIT))
+        stringBuilder.append(action.servantSkill(2, 3, SKILL_WAIT))
+        stringBuilder.append(action.servantSkill(3, 3, SKILL_WAIT))
         // 点攻击
         stringBuilder.append(action.openAttack())
         // 选卡：2号女武神宝具   攻击卡4  攻击卡3
@@ -63,7 +63,7 @@ class Christmas2020: Battle() {
         stringBuilder.append(action.attack(3))
         stringBuilder.append(action.attack(4))
         // 等待到第2面
-        stringBuilder.append(action.userWait(30000))
+        stringBuilder.append(action.userWait(TURN_WAIT))
 
         // ——————————第3面——————————
         // 1号位CBA   技能2     技能3给女武神
@@ -79,10 +79,10 @@ class Christmas2020: Battle() {
         stringBuilder.append(action.attack(3))
         stringBuilder.append(action.attack(4))
         // 等待进入结算画面
-        stringBuilder.append(action.userWait(30000))
+//        stringBuilder.append(action.userWait(38000))
 
         // 结算画面
-        stringBuilder.append(action.battleFinish())
+//        stringBuilder.append(action.battleFinish())
         return stringBuilder.toString()
     }
 

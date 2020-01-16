@@ -10,13 +10,23 @@ class CombatAction : ICombatAction {
     private val startX = Global.START_X.toDouble()
     private val startY = Global.START_Y.toDouble()
 
+    override fun selectEnemy(enemy: Int): String {
+        val xCenterPercent = (enemy - 1) * Global.ENEMY_X_DELTA + Global.ENEMY_X_BASE
+        val x = getX(xCenterPercent, Global.ENEMY_X_BIAS)
+        val y = getY(Global.ENEMY_Y_BASE, Global.ENEMY_Y_BIAS)
+        val downScript = MonkeyUtils.downEvent(x, y, randomClickTime(50))
+        val upScript = MonkeyUtils.upEvent(x, y, 30)
+        val userWait = userClickWait(150)
+        return "$downScript\r\n$upScript\r\n$userWait"
+    }
+
     override fun servantSkill(skill: Int, from: Int, wait: Long): String {
         val xCenterPercent = ((from - 1) * Global.SERVANT_X_DELTA + Global.SERVANT_SKILL_X_BASE) +
                 (skill - 2) * Global.SERVANT_SKILL_X_DELTA
 
         val x = getX(xCenterPercent, Global.SKILL_BIAS)
         val y = getY(Global.SERVANT_SKILL_Y_BASE, Global.SKILL_BIAS)
-        val downScript = MonkeyUtils.downEvent(x, y, randomClickTime(150))
+        val downScript = MonkeyUtils.downEvent(x, y, randomClickTime(50))
         val upScript = MonkeyUtils.upEvent(x, y, 30)
         val userWait = userWait(wait)
         return "$downScript\r\n$upScript\r\n$userWait"
@@ -31,7 +41,7 @@ class CombatAction : ICombatAction {
         val fromY = getY(Global.SERVANT_SKILL_Y_BASE, Global.SKILL_BIAS)
         val fromDownScript = MonkeyUtils.downEvent(fromX, fromY, randomClickTime(150))
         val fromUpScript = MonkeyUtils.upEvent(fromX, fromY, 30)
-        val userClickWait = userClickWait(600)
+        val userClickWait = userClickWait(300)
         val fromScript = "$fromDownScript\r\n$fromUpScript\r\n$userClickWait"
 
         val toXCenterPercent = (to - 1) * Global.SELECT_SERVANT_X_DELTA + Global.SELECT_SERVANT_X_BASE
@@ -45,8 +55,8 @@ class CombatAction : ICombatAction {
     }
 
     override fun openMasterSkill(): String {
-        val x = getX(Global.MASTER_SKILL_OPEN_X_BASE, Global.MASTER_SKILL_OPEN_X_BIAS)
-        val y = getY(Global.MASTER_SKILL_OPEN_Y_BASE, Global.MASTER_SKILL_OPEN_Y_BIAS)
+        val x = getX(Global.MASTER_SKILL_OPEN_X_BASE,  0.toDouble())
+        val y = getY(Global.MASTER_SKILL_OPEN_Y_BASE,  0.toDouble())
 
         val downScript = MonkeyUtils.downEvent(x, y, randomClickTime(40))
         val upScript = MonkeyUtils.upEvent(x, y, 30)
@@ -56,8 +66,8 @@ class CombatAction : ICombatAction {
 
     override fun masterSkill(skill: Int, wait: Long): String {
         val xCenterPercent = (skill - 1) * Global.MASTER_SKILL_X_DELTA + Global.MASTER_SKILL_X_BASE
-        val x = getX(xCenterPercent, Global.MASTER_SKILL_X_BIAS)
-        val y = getY(Global.MASTER_SKILL_Y_BASE, Global.MASTER_SKILL_Y_BIAS)
+        val x = getX(xCenterPercent, 0.toDouble())
+        val y = getY(Global.MASTER_SKILL_Y_BASE, 0.toDouble())
         val downScript = MonkeyUtils.downEvent(x, y, randomClickTime(150))
         val upScript = MonkeyUtils.upEvent(x, y, 30)
         val userWait = userWait(wait)
@@ -70,7 +80,7 @@ class CombatAction : ICombatAction {
 
     override fun changeServant(servantLeave: Int, servantCome: Int): String {
         // 点击换人技能
-        val openSkill = masterSkill(3, 400)
+        val openSkill = masterSkill(3, 200)
 
         // 点击换出从者
         val leaveCenterPercent = (servantLeave - 1) * Global.CHANGE_SERVANT_X_DELTA + Global.CHANGE_SERVANT_X_BASE
@@ -78,7 +88,7 @@ class CombatAction : ICombatAction {
         val leaveY = getY(Global.CHANGE_SERVANT_Y_BASE, Global.CHANGE_SERVANT_Y_BIAS)
         val leaveDownScript = MonkeyUtils.downEvent(leaveX, leaveY, randomClickTime(150))
         val leaveUpScript = MonkeyUtils.upEvent(leaveX, leaveY, 30)
-        val leaveUserClickWait = userClickWait(300)
+        val leaveUserClickWait = userClickWait(200)
         val leaveScript = "$leaveDownScript\r\n$leaveUpScript\r\n$leaveUserClickWait"
 
         // 点击换入从者
@@ -87,7 +97,7 @@ class CombatAction : ICombatAction {
         val comeY = getY(Global.CHANGE_SERVANT_Y_BASE, Global.CHANGE_SERVANT_Y_BIAS)
         val comeDownScript = MonkeyUtils.downEvent(comeX, comeY, randomClickTime(150))
         val comeUpScript = MonkeyUtils.upEvent(comeX, comeY, 30)
-        val comeUserClickWait = userClickWait(300)
+        val comeUserClickWait = userClickWait(200)
         val comeScript = "$comeDownScript\r\n$comeUpScript\r\n$comeUserClickWait"
 
         // 点击确定
@@ -95,7 +105,7 @@ class CombatAction : ICombatAction {
         val confirmY = getY(Global.CHANGE_CONFIRM_Y_BASE, Global.CHANGE_CONFIRM_Y_BIAS)
         val confirmDownScript = MonkeyUtils.downEvent(confirmX, confirmY, randomClickTime(150))
         val confirmUpScript = MonkeyUtils.upEvent(confirmX, confirmY, 30)
-        val userWait = userWait(7800)
+        val userWait = userWait(7000)
         val confirmScript = "$confirmDownScript\r\n$confirmUpScript\r\n$userWait"
         return "$openSkill$leaveScript$comeScript$confirmScript"
     }
@@ -117,7 +127,7 @@ class CombatAction : ICombatAction {
 
         val downScript = MonkeyUtils.downEvent(x, y, randomClickTime(150))
         val upScript = MonkeyUtils.upEvent(x, y, 30)
-        val userWait = userClickWait(300)
+        val userWait = userClickWait(180)
         return "$downScript\r\n$upScript\r\n$userWait"
     }
 
