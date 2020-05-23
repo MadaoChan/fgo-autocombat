@@ -75,7 +75,24 @@ class CombatAction : ICombatAction {
     }
 
     override fun masterSkill(skill: Int, to: Int, isFriendly: Boolean, wait: Long): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        // 选择御主技能
+        val xCenterPercent = (skill - 1) * Global.MASTER_SKILL_X_DELTA + Global.MASTER_SKILL_X_BASE
+        val x = getX(xCenterPercent, 0.toDouble())
+        val y = getY(Global.MASTER_SKILL_Y_BASE, 0.toDouble())
+        val downScript = MonkeyUtils.downEvent(x, y, randomClickTime(150))
+        val upScript = MonkeyUtils.upEvent(x, y, 30)
+        val userClickWait = userClickWait(300)
+        val fromScript = "$downScript\r\n$upScript\r\n$userClickWait"
+
+        // 选择从者
+        val toXCenterPercent = (to - 1) * Global.SELECT_SERVANT_X_DELTA + Global.SELECT_SERVANT_X_BASE
+        val toX = getX(toXCenterPercent, Global.SELECT_SERVANT_X_BIAS)
+        val toY = getY(Global.SELECT_SERVANT_Y_BASE, Global.SELECT_SERVANT_Y_BIAS)
+        val toDownScript = MonkeyUtils.downEvent(toX, toY, randomClickTime(150))
+        val toUpScript = MonkeyUtils.upEvent(toX, toY, 30)
+        val userWait = userWait(wait)
+        val toScript = "$toDownScript\r\n$toUpScript\r\n$userWait"
+        return "$fromScript$toScript"
     }
 
     override fun changeServant(servantLeave: Int, servantCome: Int): String {

@@ -1,6 +1,5 @@
 import combat.Battle
-import combat.Christmas2020
-import combat.Christmas2020New
+import combat.casefile.CaseFileLineup
 import utils.Deploy
 import utils.FileUtils
 
@@ -12,7 +11,7 @@ class Main {
     init {
         val fileName = "christmas2020pool.mks"
         val destPath = "/storage/emulated/0/$fileName"
-        val battle: Battle = Christmas2020New()
+        val battle: Battle = CaseFileLineup()
         val result = battle.buildScript()
         println(result)
         FileUtils.writeFile(fileName, result)
