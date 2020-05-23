@@ -147,10 +147,10 @@ class CaseFileLineup: Battle() {
     }
 
     override fun buildScript(): String {
-        // 阵容1：无需解弱体 借梅林
-        // 阵容2：解弱体 借梅林
+        // 阵容1：无需解弱体 借梅林（理论状况，不适用）
+        // 阵容2：借梅林 解弱体
         // 阵容3：借高宝黑杯三藏 无视是否解弱体
-        return force1()
+        return force2()
     }
 
     private fun buildHeader(): String {
