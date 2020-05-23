@@ -9,7 +9,6 @@ class CaseFileLineup: Battle() {
     companion object {
         private const val ATTACKER_SKILL_WAIT = 3500L
         private const val SKILL_WAIT = 2800L
-        private const val TURN_WAIT = 32000L
     }
 
     init {
@@ -17,7 +16,7 @@ class CaseFileLineup: Battle() {
     }
 
     /**
-     * 不需要解弱体场合 借梅林
+     * 借梅林 不用解弱体
      */
     private fun force1(): String {
         // FGO国服 2020埃尔梅罗二世事件簿 魔神柱Monkey脚本1
@@ -26,7 +25,7 @@ class CaseFileLineup: Battle() {
         //  1号位 狂贞（带黑杯）
         //  2号位 梅林（羁绊礼装）
         //  3号位 梅林（牛魔王最佳）
-        //  4号位 孔明（羁绊礼装）
+        //  4号位 玛尔达（牛魔王）
         // 衣服：换人服
 
         val stringBuilder = StringBuilder()
@@ -42,12 +41,10 @@ class CaseFileLineup: Battle() {
         // 3号位梅林 技能1 技能3
         stringBuilder.append(action.servantSkill(1, 3, SKILL_WAIT))
         stringBuilder.append(action.servantSkill(3, 3, 1, true, SKILL_WAIT))
-        // 点御主技能   技能3换人    4号位孔明换3号位梅林
+        // 点御主技能   技能3换人    4号位玛尔达换3号位梅林
         stringBuilder.append(action.openMasterSkill())
         stringBuilder.append(action.changeServant(3, 4))
-        // 3号位孔明 技能全开 30充能给狂贞
-        stringBuilder.append(action.servantSkill(1, 3, 1, true, SKILL_WAIT))
-        stringBuilder.append(action.servantSkill(2, 3, SKILL_WAIT))
+        // 3号位玛尔达 技能3降防御
         stringBuilder.append(action.servantSkill(3, 3, SKILL_WAIT))
         // 点御主技能   技能1加攻
         stringBuilder.append(action.openMasterSkill())
@@ -63,7 +60,7 @@ class CaseFileLineup: Battle() {
     }
 
     /**
-     * 解弱体场合 借梅林
+     * 借梅林 解弱体
      */
     private fun force2(): String {
         // FGO国服 2020埃尔梅罗二世事件簿 魔神柱Monkey脚本2
@@ -147,9 +144,10 @@ class CaseFileLineup: Battle() {
     }
 
     override fun buildScript(): String {
-        // 阵容1：无需解弱体 借梅林（理论状况，不适用）
+        // 阵容1：借梅林 不用解弱体
         // 阵容2：借梅林 解弱体
         // 阵容3：借高宝黑杯三藏 无视是否解弱体
+        // （阵容1和2之间只差是否需要玛尔达解弱体）
         return force2()
     }
 
