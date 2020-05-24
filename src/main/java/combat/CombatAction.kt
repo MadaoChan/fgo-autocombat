@@ -122,7 +122,7 @@ class CombatAction : ICombatAction {
         val confirmY = getY(Global.CHANGE_CONFIRM_Y_BASE, Global.CHANGE_CONFIRM_Y_BIAS)
         val confirmDownScript = MonkeyUtils.downEvent(confirmX, confirmY, randomClickTime(150))
         val confirmUpScript = MonkeyUtils.upEvent(confirmX, confirmY, 30)
-        val userWait = userWait(7000)
+        val userWait = userWait(6000)
         val confirmScript = "$confirmDownScript\r\n$confirmUpScript\r\n$userWait"
         return "$openSkill$leaveScript$comeScript$confirmScript"
     }
@@ -192,11 +192,11 @@ class CombatAction : ICombatAction {
     }
 
     /**
-     * 生成随机等待时间（+0~1秒内）
+     * 生成随机等待时间（+200~500ms内）
      */
     private fun randomWaitTime(base: Long): Long {
-        val lowerBound = 0.toDouble()
-        val upperBound = 1000.toDouble()
+        val lowerBound = 200.toDouble()
+        val upperBound = 500.toDouble()
         return (base + MonkeyUtils.random(lowerBound, upperBound)).toLong()
     }
 
